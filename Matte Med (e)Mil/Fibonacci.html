@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css"></style>
+</head>
+<body>
+<div id="container"></div>
+
+<script type="text/javascript">
+
+    var fibonacci = 0;
+    var previousFib = 0;
+    var lastFib = 0;
+    var container = document.getElementById("container");
+    for (var i = 0; i < 13; i++) {
+        container.innerHTML += i + 1 + " = " + fibonacci + "<br />";
+        lastFib = previousFib;
+        previousFib = fibonacci;
+        var bothPreviousNumbers = previousFib + lastFib;
+        fibonacci = bothPreviousNumbers;
+        if (fibonacci === 0) fibonacci++;
+    }
+</script>
+</body>
+</html>

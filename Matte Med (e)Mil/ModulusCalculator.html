@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        
+        #mainContainer {
+            margin: auto;
+            height: 300px;
+            width: 300px;
+        }
+
+        #amount, #maxAmount {
+            float: right;
+            text-align: right;
+        }
+
+        #calculate {
+            margin: 10% 40%;
+        }
+
+        .divContainer {
+            border: 1px solid black;
+        }
+
+        .divContainer .result {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainContainer">
+        <p>Amount: <input id="amount"/></p>
+        <p>% (modulus): <input id="maxAmount"/></p>
+        <div class="divContainer"><span>Result: </span><span class="result"></span></div>
+        <div class="divContainer"><span>Amount of iterations: </span><span class="result"></span></div>
+        <button id="calculate" onclick="calculate()">Calculate</button>
+    </div>
+
+    <script type="text/javascript">
+
+        var amount = document.getElementById("amount").value;
+        var maxItemsInArray = document.getElementById("maxAmount").value;
+        var modNine = amount % maxItemsInArray;
+        var intrOfModNine = Math.floor(amount / maxItemsInArray);
+
+        function calculate() {
+            var amount = document.getElementById("amount").value;
+            var maxItemsInArray = document.getElementById("maxAmount").value;
+            var modNine = amount % maxItemsInArray;
+            var intrOfModNine = Math.floor(amount / maxItemsInArray);
+            document.getElementsByClassName("result")[0].innerHTML = modNine;
+            document.getElementsByClassName("result")[1].innerHTML = intrOfModNine;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+
+        #container {
+            padding: 1px 0 0;
+        }
+        #prime {
+            font-size: 24px;
+            margin: 14px 0;
+        }
+        #prime:hover {
+            font-size: 48px;
+            color: hotpink;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="number" placeholder="Max number" id="input"/>
+<button onclick="calculate()">Knapp ;)</button>
+<div id="container">
+</div>
+
+
+<script type="text/javascript">
+
+    var primeNumber = document.getElementById("container");
+
+    function primeFactorsTo(max) {
+        var store = [], i, j, primes = [];
+        for (i = 2; i <= max; ++i) {
+            if (!store[i]) {
+                primes.push(i);
+                for (j = i << 1; j <= max; j += i) {
+                    store[j] = true;
+                }
+            }
+        }
+        return primes;
+    }
+
+    document.getElementById("container").style.textAlign = "center";
+
+    function printPrimeNumbers(max) {
+        document.getElementById("container").innerHTML = "";
+
+        let primes = primeFactorsTo(max);
+        for (var i = 0; i < primes.length; i++) {
+            document.getElementById("container").innerHTML += "<div id='prime'>" + primes[i] + "</div><br />";
+        }
+    }
+    function calculate() {
+        printPrimeNumbers(document.getElementById("input").value);
+    }
+
+    //printPrimeNumbers(1000);
+</script>
+</body>
+</html>

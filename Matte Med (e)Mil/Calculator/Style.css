@@ -1,0 +1,42 @@
+﻿button {
+    height: 10vh;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    border: 1px solid gray;
+}
+
+#calculator {
+    margin: 5vh 35vw;
+    border: 3px solid black;
+    height: 81.5vh;
+    background-color: black;
+}
+
+#resultScreen {
+    margin: 4%;
+    padding: 2vh 1vw;
+    background-color: gray;
+    color: white;
+    text-align: right;
+}
+
+    #resultScreen #previousCalculation {
+        height: 25px;
+        font-size: 25px;
+    }
+
+    #resultScreen #calculationSymbol {
+        font-size: 25px;
+        margin: 0 5%;
+    }
+
+    #resultScreen #currentCalculation {
+        font-size: 50px;
+    }
+
+#calculatorBase {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto auto auto auto auto auto;
+}
