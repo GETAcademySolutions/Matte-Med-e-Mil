@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table, tr, td {
+            border-collapse: collapse;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" /><br /><button>Do something</button>
+        <table v-for="day in days" style="margin-bottom: 20px">
+            <tr style="background-color: green; color: white">
+                <td colspan="4">{{ day.dayName }} {{ day.date }} </td>
+            </tr>
+            <tr v-for="task in day.tasks">
+                <td>{{ task.description }}</td>
+                <td>{{ task.startTime }}</td>
+                <td>{{ task.endTime }}</td>
+                <td>{{ task.project }}</td>
+            </tr>
+        </table>
+
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                days: [
+                    {
+                        date: '01.01.2019',
+                        dayName: 'Thursday',
+                        total: 1.5,
+                        tasks: [
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task2', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task3', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task4', startTime: 10, endTime: 12, project: 'Proj 1' },
+                        ]
+                    },
+                    {
+                        date: '02.01.2019',
+                        dayName: 'Thursday',
+                        total: 1.5,
+                        tasks: [
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                        ]
+                    },
+                    {
+                        date: '03.01.2019',
+                        dayName: 'Thursday',
+                        total: 1.5,
+                        tasks: [
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                            { description: 'Task1', startTime: 10, endTime: 12, project: 'Proj 1' },
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>....................SecretPage....................</title>
+    <link href="css/default.css" rel="stylesheet" />
+    <style>
+        * {
+            background-color: hotpink;
+            overflow: hidden;
+        }
+
+        div {
+            margin: auto;
+        }
+
+        h1 {
+            margin: -0.4%;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            background-color: rebeccapurple;
+            color: hotpink;
+            -webkit-animation-name: example;
+            -webkit-animation-duration: 5s;
+            z-index: 0;
+        }
+
+        h2 {
+            position: absolute;
+            margin: 3% 45%;
+            -webkit-animation-name: jumpy;
+            -webkit-animation-duration: 5s;
+            color: hotpink;
+            background-color: rebeccapurple;
+            text-align: center;
+            font-size: 10vw;
+            z-index: 1;
+        }
+
+        @keyframes example {
+            from {
+                background-color: hotpink;
+                color: rebeccapurple;
+                position: absolute;
+                margin: 0 49%;
+                text-align: center;
+                width: 0;
+                height: auto !important;
+                height: 0;
+            }
+
+            to {
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                background-color: rebeccapurple;
+                color: hotpink;
+                text-align: center;
+            }
+        }
+
+        @keyframes jumpy {
+            from {
+                position: absolute;
+                margin: 5% 49%;
+                background-color: hotpink;
+                color: rebeccapurple;
+                text-align: center;
+                font-size: 1vw;
+            }
+
+            to {
+                position: absolute;
+                margin: 3% 45%;
+                background-color: rebeccapurple;
+                color: hotpink;
+                text-align: center;
+                font-size: 10vw;
+            }
+        }
+
+        @keyframes bahwdi {
+            from {
+                background-color: hotpink;
+            }
+
+            to {
+                background-color: rebeccapurple;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hei Emil!</h1>
+    <h2>69</h2>
+    <div>
+    </div>
+    <script>
+        var audio = new Audio('music/hp.mp3');
+        audio.addEventListener('ended', function () {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        audio.play();
+    </script>
+</body>
+</html>

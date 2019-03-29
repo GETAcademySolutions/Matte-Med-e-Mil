@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        table, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            font-size: 10vh;
+        }
+
+        td {
+            width: 10vw;
+            height: 10vw;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="trePåRadTest">
+    <table>
+        <tr v-for="row in rows">
+            <td v-for="cell in row.cells" v-on:click="setX(row.id, cell.col)">
+                {{cell.text}}
+            </td>
+        </tr>
+    </table>
+    <div>
+        {{message}}
+    </div>
+</div>
+<div id="konnglaturelel">
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const trePåRadTest = new Vue({
+        el: "#trePåRadTest",
+        data: {
+            rows: [],
+            message: ''
+        },
+        created() {
+            this.rows = [];
+            for (let rowId = 0; rowId < 3; rowId++) {
+                const row = {
+                    id: rowId,
+                    cells: []
+                };
+                this.rows.push(row);
+                for (let i = 0; i < 3; i++) {
+                    const cellId = rowId * 3 + i;
+                    row.cells.push({id: cellId, text: cellId, col: i});
+                }
+            }
+        },
+        methods: {
+            setX: function (rowId, cellId) {
+                console.log(rowId, cellId);
+                this.symbol === "X" ? this.symbol = "O" : this.symbol = "X";
+                this.rows[rowId].cells[cellId].text = this.symbol;
+                this.checkWinning();
+                this.checkLosing();
+            },
+            checkWinning: function () {
+                if (this.rows[0].cells[0].text === "X" && this.rows[1].cells[0].text === "X" && this.rows[2].cells[0].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[0].cells[1].text === "X" && this.rows[1].cells[1].text === "X" && this.rows[2].cells[1].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[0].cells[2].text === "X" && this.rows[1].cells[2].text === "X" && this.rows[2].cells[2].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[0].cells[0].text === "X" && this.rows[0].cells[1].text === "X" && this.rows[0].cells[2].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[1].cells[0].text === "X" && this.rows[1].cells[1].text === "X" && this.rows[1].cells[2].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[2].cells[0].text === "X" && this.rows[2].cells[1].text === "X" && this.rows[2].cells[2].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[0].cells[0].text === "X" && this.rows[1].cells[1].text === "X" && this.rows[2].cells[2].text === "X") {
+                    this.message = "X wins";
+                } else if (this.rows[0].cells[2].text === "X" && this.rows[1].cells[1].text === "X" && this.rows[2].cells[0].text === "X") {
+                    this.message = "X wins";
+                }
+            },
+            checkLosing: function () {
+                if (this.rows[0].cells[0].text === "O" && this.rows[1].cells[0].text === "O" && this.rows[2].cells[0].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[0].cells[1].text === "O" && this.rows[1].cells[1].text === "O" && this.rows[2].cells[1].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[0].cells[2].text === "O" && this.rows[1].cells[2].text === "O" && this.rows[2].cells[2].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[0].cells[0].text === "O" && this.rows[0].cells[1].text === "O" && this.rows[0].cells[2].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[1].cells[0].text === "O" && this.rows[1].cells[1].text === "O" && this.rows[1].cells[2].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[2].cells[0].text === "O" && this.rows[2].cells[1].text === "O" && this.rows[2].cells[2].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[0].cells[0].text === "O" && this.rows[1].cells[1].text === "O" && this.rows[2].cells[2].text === "O") {
+                    this.message = "O wins";
+                } else if (this.rows[0].cells[2].text === "O" && this.rows[1].cells[1].text === "O" && this.rows[2].cells[0].text === "O") {
+                    this.message = "O wins";
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
